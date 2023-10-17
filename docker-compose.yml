@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: airbyte-automation:latest
+    environment:
+      AIRBYTE_ENDPOINT: http://host.docker.internal:8006
+      AIRBYTE_BASIC_AUTH: true
+      AIRBYTE_USERNAME: airbyte
+      AIRBYTE_PASSWORD: password
+      DB_PORT: 5432
+      DB_NAME: decidim
+      WORKSPACE_UUID: af1b955e-7b00-4021-a09a-4b96dce8cd12
+    volumes:
+      - ~/.kube/config:/.kube/config
