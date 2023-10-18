@@ -48,7 +48,8 @@ AirbyteRuby::Configuration.tap do |c|
   c.airbyte_password = ENV.fetch("AIRBYTE_PASSWORD", "password")
 end
 
-db_host = ENV["DB_HOST"] || "#{target.decidim_name}--de-pg-headless-replica.#{target.namespace}.svc.cluster.local"
+
+db_host = ENV["DB_HOST"] || "#{target.decidim_name}--de-pg-repl-headless.#{target.namespace}.svc.cluster.local"
 db_port = ENV["DB_PORT"]&.to_i || 5432
 db_name = ENV["DB_NAME"] || "decidim"
 workspace_uuid = ENV["WORKSPACE_UUID"]
