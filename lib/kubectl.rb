@@ -25,7 +25,6 @@ module Lib
     end
 
     def self.get_pg_credentials(namespace, decidim_name)
-      puts "Retrieving PG credentials for #{decidim_name}..."
       cmd = "kubectl get secret -n #{namespace} decidim-reader.#{decidim_name}--de-pg.credentials.postgresql.acid.zalan.do -o json | jq '{username: .data.username, password: .data.password}'"
       res = kubectl_exec!(cmd)
       raise Error, res.stderr unless res.status.success?

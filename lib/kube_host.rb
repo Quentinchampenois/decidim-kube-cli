@@ -9,5 +9,9 @@ module Lib
         host: hash["spec"]["host"]
       )
     end
+
+    def to_s
+      "Host: #{host}\nNamespace: #{namespace}\nDecidim: #{decidim_name}\nStatus: #{status}"
+    end
   end
 end

@@ -9,5 +9,9 @@ module Lib
         password: Base64.decode64(hash["password"])
       )
     end
+
+    def to_s
+      "Username: #{username}\nPassword: #{password}"
+    end
   end
 end
